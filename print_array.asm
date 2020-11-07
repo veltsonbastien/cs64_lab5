@@ -20,13 +20,12 @@ printA:
 
 	# we are going to want to do some sort of loop...
 
-	li $t0, 0 #base condition 
-	li $t1, 10  #counter 	
+	li $t0, 0 #base condition  	
 	move $t2, $a0 #put array in a temp variable 
 	
 printLoop: 
 
-	bge $t0, $t1,  exit_printA
+	bge $t0, $a1,  exit_printA
 
 	#print the number 
         li $v0, 1
@@ -66,7 +65,9 @@ main:
 
 	#load the array into a0 
 	la $a0, myArray 
-	
+
+	#load the length into a1
+	li $a1, 10	
 
 
 	jal printA 
